@@ -49,3 +49,22 @@ class Level:
                     # window.blit(item_arrive.picture, (x, y))
                 case_number += 1
             line_number += 1
+
+    def display_character(self, window, item_structure, letter):
+        """Method for displaying the level in function
+        of the structure list returned by generate()"""
+        # We browse the level list
+        line_number = 0
+        for line in self.structure:
+            # we browse the line lists
+            case_number = 0
+            for sprite in line:
+                # We calculate the actual position in pixels
+                x = case_number * SPRITE_SIZE
+                y = line_number * SPRITE_SIZE
+                if sprite == letter:
+                    window.blit(item_structure.picture, (x, y))
+                # elif sprite == 'g':  # g = guardian
+                    # window.blit(item_arrive.picture, (x, y))
+                case_number += 1
+            line_number += 1
